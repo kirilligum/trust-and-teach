@@ -1,0 +1,3 @@
+[submodule "coin-toss"]
+	path = coin-toss
+	url = git@github.com:kirilligum/coin-toss.git

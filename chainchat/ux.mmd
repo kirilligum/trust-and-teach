@@ -1,0 +1,11 @@
+sequenceDiagram
+  actor u as User
+  u->>blockchain: Instruction
+  u->>blockchain: Payment for usage
+  %% create participant LLM
+  blockchain->>LLM: Instruction
+  LLM->>blockchain: Response
+  blockchain->>u: Response
+  u->>blockchain: Human-Feedback
+  blockchain->>LLM: Human-Feedback
+  blockchain->>u: Payement for feedback
