@@ -1,17 +1,19 @@
+docker ps -a --no-trunc &&  docker volume ls
 docker compose -f docker-compose.yml -f docker-compose.override.yml down -v
 cd
 sudo rm -rf tmp
-docker system prune
+#docker system prune
 mkdir tmp
 cd tmp
 git clone git@github.com:prototyp3-dev/coin-toss.git
 git clone git@github.com:cartesi/rollups-examples.git
 
 # termianl 1
-cd coin-toss
+cd ~/tmp/coin-toss
 docker buildx bake -f docker-bake.hcl -f docker-bake.override.hcl --load && docker compose -f docker-compose.yml -f docker-compose.override.yml up
 
 # terminal 2
+cd ~/tmp/coin-toss
 export PLAYER1="0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
 export PLAYER1_PRIVATE_KEY="0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
 export PLAYER2="0x70997970C51812dc3A010C7d01b50e0d17dc79C8"
@@ -25,6 +27,7 @@ docker run --rm --net="host" ghcr.io/foundry-rs/foundry "cast send --private-key
 docker run --rm --net="host" ghcr.io/foundry-rs/foundry "cast send --private-key $PLAYER2_PRIVATE_KEY --rpc-url $RPC_URL $COIN_TOSS_ADDRESS \"play(address)\" $PLAYER1"
 curl --data '{"id":1337,"jsonrpc":"2.0","method":"evm_increaseTime","params":[864010]}' http://localhost:8545
 
+rm ../rollups-examples/deployments/localhost
 ln -s ./deployments/* ../rollups-examples/deployments/
 cd ../rollups-examples/frontend-console/
 yarn && yarn build
