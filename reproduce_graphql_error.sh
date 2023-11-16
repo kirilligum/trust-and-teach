@@ -28,7 +28,7 @@ docker run --rm --net="host" ghcr.io/foundry-rs/foundry "cast send --private-key
 curl --data '{"id":1337,"jsonrpc":"2.0","method":"evm_increaseTime","params":[864010]}' http://localhost:8545
 
 rm ../rollups-examples/deployments/localhost
-ln -s ./deployments/* ../rollups-examples/deployments/
+ln -s ~/tmp/coin-toss/deployments/* ~/tmp/rollups-examples/deployments/
 cd ../rollups-examples/frontend-console/
 yarn && yarn build
 yarn start notice list && yarn start voucher list
