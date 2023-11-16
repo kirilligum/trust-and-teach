@@ -10,6 +10,7 @@ git clone git@github.com:cartesi/rollups-examples.git
 
 # termianl 1
 cd ~/tmp/coin-toss
+sed -i "s/CoinToss/TrustAndTeach/g" docker-compose.override.yml contracts/src/localhost/coin-toss.sol
 docker buildx bake -f docker-bake.hcl -f docker-bake.override.hcl --load && docker compose -f docker-compose.yml -f docker-compose.override.yml up
 
 # terminal 2
