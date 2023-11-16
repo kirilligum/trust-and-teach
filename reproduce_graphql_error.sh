@@ -2,7 +2,7 @@ docker ps -a --no-trunc &&  docker volume ls
 docker compose -f docker-compose.yml -f docker-compose.override.yml down -v
 cd
 sudo rm -rf tmp
-#docker system prune
+docker system prune && docker image prune
 mkdir tmp
 cd tmp
 git clone git@github.com:prototyp3-dev/coin-toss.git
