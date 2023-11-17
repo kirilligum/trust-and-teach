@@ -10,7 +10,6 @@ docker system prune -a --volumes -f
 
 cd
 sudo rm -rf tmp
-docker system prune && docker image prune
 mkdir tmp
 cd tmp
 git clone git@github.com:prototyp3-dev/coin-toss.git
