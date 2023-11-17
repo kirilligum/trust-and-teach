@@ -1,6 +1,7 @@
 docker compose -f docker-compose.yml -f docker-compose.override.yml down -v
 docker images && docker ps -a --no-trunc &&  docker volume ls
-docker rmi $(docker images -q) -f &&  docker rm $(docker ps -aq) -f
+docker rmi $(docker images -q) -f 
+docker rm $(docker ps -aq) -f
 cd
 sudo rm -rf tmp
 docker system prune && docker image prune
