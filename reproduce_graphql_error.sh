@@ -1,5 +1,5 @@
 docker compose -f docker-compose.yml -f docker-compose.override.yml down -v
-docker images && docker ps -a --no-trunc &&  docker volume ls
+docker images && docker ps -a --no-trunc &&  docker volume ls && docker network ls
 
 docker stop $(docker ps -aq)
 docker rm $(docker ps -aq) -f
