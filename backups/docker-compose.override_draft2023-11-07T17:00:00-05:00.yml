@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  contracts:
+    build: ./contracts
+    network_mode: host
+    depends_on:
+      hardhat:
+        condition: service_healthy
+    command: ["mkdir -p deployments/localhost && forge create --rpc-url '${RPC_URL:-http://localhost:8545}' --mnemonic '${MNEMONIC:-test test test test test test test test test test test junk}' --json /opt/contracts/src/${NETWORK:-localhost}/coin-toss.sol:TrustAndTrain | tee deployments/localhost/TrustAndTrain.json"]
+    volumes:
+      - ./deployments:/opt/contracts/deployments
+
+  dispatcher:
+    depends_on:
+      contracts:
+        condition: service_completed_successfully
+
+  state_server:
+    depends_on:
+      contracts:
+        condition: service_completed_successfully
+
+  deployer:
+    depends_on:
+      contracts:
+        condition: service_completed_successfully
