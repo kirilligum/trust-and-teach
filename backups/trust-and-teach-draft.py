@@ -46,6 +46,11 @@ def post(endpoint, json):
     response = requests.post(f"{rollup_server}/{endpoint}", json=json)
     logger.info(f"Received {endpoint} status {response.status_code} body {response.content}")
 
+
+def toss_coin(seed):
+    random.seed(seed)
+    return random.randint(0,1)
+
 def submitPrompt(input):
     PROMPT_CMD = PROMPT_CMD_head + input + PROMPT_CMD_tail
     promptResponse1 = subprocess.check_output(PROMPT_CMD, shell=True, stderr=subprocess.STDOUT).decode()

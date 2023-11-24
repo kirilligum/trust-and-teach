@@ -79,11 +79,7 @@ contract TrustAndTeach {
         emit PromptResponsesRanked(conversation_id, ranks);
     }
 
-    function getL2Dapp()
-        public
-        view
-        returns (address)
-    {
+    function getL2Dapp() public view returns (address) {
         return L2_DAPP;
     }
 
