@@ -71,7 +71,7 @@ def handle_advance(data):
         conversationId, promptInput = decode_abi(['uint256', 'string'], binary)
         logger.info(f"Received promptInput: {promptInput}, from conversationId: {conversationId}")
 
-        promptLLMResponse = submitPrompt(inputInput)
+        promptLLMResponse = submitPrompt(promptInput)
 
         notice = {
             "conversationId": conversationId,
