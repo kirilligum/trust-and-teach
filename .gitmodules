@@ -1,3 +1,6 @@
 [submodule "coin-toss"]
 	path = coin-toss
 	url = git@github.com:kirilligum/coin-toss.git
+[submodule "rollups-examples"]
+	path = rollups-examples
+	url = https://github.com/kirilligum/rollups-examples
