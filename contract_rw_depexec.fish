@@ -16,13 +16,16 @@ function test_cartesi_voucher
     return
   end
   docker image inspect coin-toss-contracts >/dev/null 2>&1; and docker image rm coin-toss-contracts; or true
-  # docker buildx bake -f docker-bake.hcl -f docker-bake.override.hcl --load
   if not docker buildx bake -f docker-bake.hcl -f docker-bake.override.hcl --load
-    # If the command fails, output an additional custom error message
     echo "Error: docker buildx bake command failed" | tee -a $logfile
     return 1
   end
   fish -c "docker compose -f docker-compose.yml -f docker-compose.override.yml up"&
+
+  set rpc_server_tries_count 0
+  set rpc_server_tries_count_cutoff 10
+
+
   while true
     if not docker version >/dev/null
       echo "docker isn't running :-( (in the while block loop)"  &| tee -a $logfile
@@ -31,6 +34,14 @@ function test_cartesi_voucher
     set hex_response (curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' $RPC_URL 2>/dev/null)
     # Check if the response is empty (server might not be running)
     if test -z "$hex_response"
+      set $rpc_server_tries_count (math $$rpc_server_tries_count + 1)
+
+      # Check if the counter has reached 10
+      if test $$rpc_server_tries_count -eq $rpc_server_tries_count_cutoff
+          echo "RPC server check failed 10 times. Exiting..." &| tee -a $logfile
+          return
+      end
+
       echo "RPC server not available. Retrying in 10 seconds..."
       sleep 10
       continue
