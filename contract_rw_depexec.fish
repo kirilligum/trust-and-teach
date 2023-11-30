@@ -27,6 +27,7 @@ function test_cartesi_voucher
 
 
   while true
+    echo "()()() while loop in: $logfile"
     if not docker version >/dev/null
       echo "docker isn't running :-( (in the while block loop)"  &| tee -a $logfile
       return
@@ -74,6 +75,7 @@ function test_cartesi_voucher
   end
 
   while true
+    echo "()()() while loop in: $logfile"
     if not docker version >/dev/null
       echo "docker isn't running :-( (in the while block loop)"  &| tee -a $logfile
       return
