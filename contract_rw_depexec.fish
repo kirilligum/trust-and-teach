@@ -23,7 +23,7 @@ function test_cartesi_voucher
   fish -c "docker compose -f docker-compose.yml -f docker-compose.override.yml up"&
 
   set rpc_server_tries_count 0
-  set rpc_server_tries_count_cutoff 10
+  set rpc_server_tries_count_cutoff 5
 
 
   while true
