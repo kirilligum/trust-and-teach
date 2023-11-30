@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
-set -x
+# set -x
 set fish_trace 1
 source  ../contract_rw_vars.fish
 
@@ -16,7 +16,12 @@ function test_cartesi_voucher
     return
   end
   docker image inspect coin-toss-contracts >/dev/null 2>&1; and docker image rm coin-toss-contracts; or true
-  docker buildx bake -f docker-bake.hcl -f docker-bake.override.hcl --load
+  # docker buildx bake -f docker-bake.hcl -f docker-bake.override.hcl --load
+  if not docker buildx bake -f docker-bake.hcl -f docker-bake.override.hcl --load
+    # If the command fails, output an additional custom error message
+    echo "Error: docker buildx bake command failed" | tee -a $logfile
+    return 1
+  end
   fish -c "docker compose -f docker-compose.yml -f docker-compose.override.yml up"&
   while true
     if not docker version >/dev/null

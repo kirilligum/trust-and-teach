@@ -22,9 +22,11 @@ set fish_trace 1
 # 5f9f391ce85cc989b391c9bef7bffbb22cd81dd7 \
 
 set commits_to_test \
-5f9f391ce85cc989b391c9bef7bffbb22cd81dd7 \
+e8fcf8eefc67dc0484687aa1cb3471dbf41b32e6 \
+774354cee3c60a2d507fa264aac24fb6284c85fd \
+3a9034fa879ac1f0d6bc8238843c246083c2bdf2 \
 
-cd coin-toss
+pwd
 
 set debug_date (date -uIs)
 set log_path_date (pwd)"/runs_history/$debug_date/"
@@ -41,4 +43,3 @@ for c in $commits_to_test
   test_cartesi_voucher -p $log_path_date_commit &| tee -a $log_filename
 end
 
-cd ..
