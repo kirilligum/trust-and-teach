@@ -23,8 +23,7 @@ set fish_trace 1
 
 set commits_to_test \
 6169f7ad084d8c09bbc0ef21bedb7f40ca2d78aa \
-8bec81b3c8f341951986871f9219bb6d64020237 \
-5f9f391ce85cc989b391c9bef7bffbb22cd81dd7 \
+7a7f1d70e255dae7766e10614191250f758dfe79 \
 
 pwd
 
