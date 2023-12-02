@@ -22,6 +22,7 @@ set fish_trace 1
 # 5f9f391ce85cc989b391c9bef7bffbb22cd81dd7 \ # n0v0
 
 set commits_to_test \
+6169f7ad084d8c09bbc0ef21bedb7f40ca2d78aa \
 ic02 \
 
 pwd
@@ -32,7 +33,7 @@ source ../contract_rw_depexec.fish
 
 for c in $commits_to_test
   set commit_test_date (date -uIs)
-  set log_path_date_commit $log_path_date"$commits_to_test__$c/"
+  set log_path_date_commit $log_path_date$commits_to_test"__$c/"
   mkdir -p $log_path_date_commit
   set log_filename $log_path_date_commit"commit.log"
   echo "testing commit ------------: $c" 

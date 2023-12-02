@@ -65,7 +65,7 @@ function test_cartesi_voucher
       docker run --rm --net="host" ghcr.io/foundry-rs/foundry "cast send --private-key $player2_private_key --rpc-url $rpc_url $coin_toss_address \"play(address,string)\" $player1 \"byr\""
       docker run --rm --net="host" ghcr.io/foundry-rs/foundry "cast send --private-key $PLAYER1_PRIVATE_KEY --rpc-url $RPC_URL $COIN_TOSS_ADDRESS \"sendInstructionPrompt(string)\" \"heeeeieeeyy\""
       echo "+++++ conversations: "
-      docker run --rm --net="host" ghcr.io/foundry-rs/foundry "cast call --private-key $PLAYER1_PRIVATE_KEY --rpc-url $RPC_URL $COIN_TOSS_ADDRESS \"conversations()\""
+      docker run --rm --net="host" ghcr.io/foundry-rs/foundry "cast call --private-key $PLAYER1_PRIVATE_KEY --rpc-url $RPC_URL $COIN_TOSS_ADDRESS \"current_conversation_id()\""
       curl --data '{"id":1337,"jsonrpc":"2.0","method":"evm_increaseTime","params":[864010]}' http://localhost:8545
       curl --data '{"id":1337,"jsonrpc":"2.0","method":"evm_increaseTime","params":[864010]}' http://localhost:8545
       break
