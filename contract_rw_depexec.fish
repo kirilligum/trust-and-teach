@@ -104,7 +104,7 @@ function test_cartesi_voucher
 
       docker run --rm --net="host" ghcr.io/foundry-rs/foundry "cast call --rpc-url $RPC_URL $COIN_TOSS_ADDRESS \"last_game()\""
       docker compose -f docker-compose.yml -f docker-compose.override.yml down -v
-
+      docker images && docker ps -a --no-trunc &&  docker volume ls && docker network ls
       break
     end
 
