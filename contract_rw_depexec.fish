@@ -74,6 +74,9 @@ function test_cartesi_voucher
     sleep 10
   end
 
+  set db_server_tries_count 0
+  set db_server_tries_count_cutoff 5
+
   while true
     echo "()()() while loop in: $logfile"
     if not docker version >/dev/null
@@ -83,6 +86,13 @@ function test_cartesi_voucher
     set hex_response (curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' $RPC_URL 2>/dev/null)
     # Check if the response is empty (server might not be running)
     if test -z "$hex_response"
+      set $db_server_tries_count (math $$db_server_tries_count + 1)
+
+      # Check if the counter has reached 10
+      if test $$db_server_tries_count -eq $db_server_tries_count_cutoff
+          echo "RPC server check failed 10 times. Exiting..." &| tee -a $logfile
+          return
+      end
       echo "front end RPC server not available. Retrying in 10 seconds..."
       sleep 10
       continue
