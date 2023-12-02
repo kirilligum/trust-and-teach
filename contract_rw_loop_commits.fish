@@ -33,7 +33,7 @@ source ../contract_rw_depexec.fish
 
 for c in $commits_to_test
   set commit_test_date (date -uIs)
-  set log_path_date_commit $log_path_date$commits_to_test"__$c/"
+  set log_path_date_commit $log_path_date$commit_test_date"__$c/"
   mkdir -p $log_path_date_commit
   set log_filename $log_path_date_commit"commit.log"
   echo "testing commit ------------: $c" 
