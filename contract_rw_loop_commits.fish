@@ -28,7 +28,6 @@ pwd
 
 set debug_date (date -uIs)
 set log_path_date (pwd)"/runs_history/$debug_date/"
-source contract_rw_depexec.fish
 
 for c in $commits_to_test
   set commit_test_date (date -uIs)
@@ -39,6 +38,6 @@ for c in $commits_to_test
   echo "testing commit: $c" &| tee -a $log_filename
   git checkout $c &| tee -a $log_filename
   git diff --name-status HEAD^ -- ':!* .md' &| tee -a $log_filename
-  test_cartesi_voucher -p $log_path_date_commit &| tee -a $log_filename
+  fish -c "source contract_rw_depexec.fish; test_cartesi_voucher -p $log_path_date_commit" &| tee -a $log_filename
 end
 
