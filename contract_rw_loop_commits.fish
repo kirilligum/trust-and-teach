@@ -29,7 +29,13 @@ set commits_to_test \
 d4da1e65bada5defd0511637af070c8be3eb02e1 \
 ic05 \
 
+pwd
+
+set debug_date (date -uIs)
+set log_path_date (pwd)"/runs_history/$debug_date/"
+
 for c in $commits_to_test
+  echo "testing commit: $c"
   set commit_test_date (date -uIs)
   set log_path_date_commit $log_path_date$commit_test_date"__$c/"
   mkdir -p $log_path_date_commit
