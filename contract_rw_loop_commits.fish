@@ -22,7 +22,9 @@ set fish_trace 1
 # 5f9f391ce85cc989b391c9bef7bffbb22cd81dd7 \ # n0v0
 
 set commits_to_test \
-ic07 \
+babbf38dcfb7e6103d229a648696aec87514a33a \
+
+# ic07 \
 
 pwd
 
