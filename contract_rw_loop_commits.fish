@@ -22,10 +22,11 @@ set fish_trace 1
 # 5f9f391ce85cc989b391c9bef7bffbb22cd81dd7 \ # n0v0
 
 set commits_to_test \
-ic07 \
+ic08 \
 
 # worked
 # eefa9e9bbe39fdbdcf4099d889352afcd4d9a5d9 \
+# 51206fc0edd202913e2537ffc7bbc2379d8ec348 \
 # notice but not vouchers
 # babbf38dcfb7e6103d229a648696aec87514a33a \
 
