@@ -22,6 +22,7 @@ set fish_trace 1
 # 5f9f391ce85cc989b391c9bef7bffbb22cd81dd7 \ # n0v0
 
 set commits_to_test \
+c452f8482b48d6a7fd82b6c89e62c94d3053eec5 \\
 ic08 \
 
 # worked
