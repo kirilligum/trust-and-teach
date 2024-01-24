@@ -4,3 +4,6 @@
 [submodule "rollups-examples"]
 	path = rollups-examples
 	url = https://github.com/kirilligum/rollups-examples
+[submodule "frontend-web-cartesi"]
+	path = frontend-web-cartesi
+	url = git@github.com:prototyp3-dev/frontend-web-cartesi.git
