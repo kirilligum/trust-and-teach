@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 docker compose -f docker-compose.yml -f docker-compose.override.yml down -v
 docker images && docker ps -a --no-trunc &&  docker volume ls && docker network ls
-docker image rm coin-toss-contracts
+docker image rm trust-and-teach-cartesi-contracts
 
 docker stop $(docker ps -aq)
 docker rm $(docker ps -aq) -f
