@@ -1,18 +1,9 @@
-[submodule "coin-toss"]
-	path = coin-toss
-	url = git@github.com:kirilligum/coin-toss.git
 [submodule "rollups-examples"]
 	path = rollups-examples
 	url = https://github.com/kirilligum/rollups-examples
-[submodule "frontend-web-cartesi"]
-	path = frontend-web-cartesi
-	url = git@github.com:prototyp3-dev/frontend-web-cartesi.git
 [submodule "trust-and-teach-cartesi"]
 	path = trust-and-teach-cartesi
 	url = git@github.com:kirilligum/trust-and-teach-cartesi.git
 [submodule "frontend-web-cartesi-trust-and-teach"]
 	path = frontend-web-cartesi-trust-and-teach
 	url = git@github.com:kirilligum/frontend-web-cartesi-trust-and-teach.git
-[submodule "scaffold-eth-trust-and-teach"]
-	path = scaffold-eth-trust-and-teach
-	url = git@github.com:kirilligum/scaffold-eth-trust-and-teach.git
