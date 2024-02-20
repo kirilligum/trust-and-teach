@@ -1,5 +1,3 @@
-# trust-and-teach
-
 # Trust-and-Teach AI DApp
 
 Reinforcement learning with human feedback (RLHF) on-chain, leverging on-chain trust, scalability, transparensy, and reputation.
