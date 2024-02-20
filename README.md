@@ -42,7 +42,7 @@ shows:
 # Trust-and-Teach AI DApp
 
 <!--START_SECTION:update_image-->
-<img src="diagrams/usersequence.mmd.svg" width="500">
+<img src="./diagrams/usersequence.mmd.svg?jl" width="500">
 <!--END_SECTION:update_image-->
 
 ## Motivation
