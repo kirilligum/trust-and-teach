@@ -42,3 +42,18 @@ solc --abi --optimize --base-path . --include-path node_modules/ ../trust-and-te
 cd src/contract_abi/
 mv TrustAndTeach.abi TrustAndTeach.json
 ```
+
+
+
+**milestone: splitting a payload into multiple vouchers**
+works:
+- split LLM response into multiple vouchers
+- automated testing for multiple vouchers
+(details below)
+Problems I'm currently working on:
+- even though 200+ random :alpha: + space character strings work, the llama2.c inference doesn't post a notice.
+Todo: 
+- run on test net
+- write docs
+- simple ui
+
