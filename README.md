@@ -30,19 +30,53 @@ These vouchers allow to validate and post the result of running the LLM on to th
 
 ## Deploy the contract and Cartesi
 
+Clone this repo and its submodules that are repsonsible for backend and front-end.
+
+```shell
+git clone --recurse-submodules git@github.com:kirilligum/trust-and-teach.git
+```
+
+### local
+
+Build and run the Cartesi VM and the local chain with a deployed contract
+
+```shell
+
+```shell
+cd trust-and-teach-cartesi
+docker buildx bake -f docker-bake.hcl -f docker-bake.override.hcl --load
+docker compose -f docker-compose.yml -f docker-compose.override.yml up
+```
+
+Shut down and clean docker containers up after you are done
+```shell
+docker compose -f docker-compose.yml -f docker-compose.override.yml down -v
+```
+
+Next, we will use a front-end to interact with the dapp. You can also interact through a command line by following the instrucations in ./trust-and-teach-cartesi/README.md. 
+
 ## Run front-end
 
-after modifying a contract
 
-```
-cd trust-and-teach-cartesi
-docker compose -f docker-compose.yml -f docker-compose.override.yml down -v ; docker image rm trust-and-teach-cartesi-contracts
-docker buildx bake -f docker-bake.hcl -f docker-bake.override.hcl --load && docker compose -f docker-compose.yml -f docker-compose.override.yml up
+```shell
+cd trust-and-teach-cartesi-frontend
+yarn
 solc --abi --optimize --base-path . --include-path node_modules/ ../trust-and-teach-cartesi/contracts/src/localhost/trust-and-teach.sol -o src/contract_abi/
 cd src/contract_abi/
 mv TrustAndTeach.abi TrustAndTeach.json
+yarn codegen
+yarn start
 ```
 
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Click on "Show Instructions" button to see the instructions for the front-end.
+
+Note that to execute Vouchers, the voucher epoch must be finalized so the rollups framework generate the proofs.
+As a reminder, you can advance time in hardhat with the command:
+
+```shell
+curl --data '{"id":1337,"jsonrpc":"2.0","method":"evm_increaseTime","params":[864010]}' http://localhost:8545
+```
 
 
 **milestone: splitting a payload into multiple vouchers**
