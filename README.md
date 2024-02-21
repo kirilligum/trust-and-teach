@@ -2,6 +2,8 @@
 
 Reinforcement learning with human feedback (RLHF) on-chain, leverging on-chain trust, scalability, transparensy, and reputation.
 
+[Video of using this project https://www.youtube.com/watch?v=LazBNDzf0e0](https://www.youtube.com/watch?v=LazBNDzf0e0)
+
 <!--START_SECTION:update_image-->
 <img src="./diagrams/usersequence.mmd.svg?jl">
 <!--END_SECTION:update_image-->
