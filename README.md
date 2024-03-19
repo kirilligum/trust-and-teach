@@ -62,8 +62,6 @@ git clone --recurse-submodules git@github.com:kirilligum/trust-and-teach.git
 Build and run the Cartesi VM and the local chain with a deployed contract
 
 ```shell
-
-```shell
 cd trust-and-teach-cartesi
 docker buildx bake -f docker-bake.hcl -f docker-bake.override.hcl --load
 docker compose -f docker-compose.yml -f docker-compose.override.yml up
